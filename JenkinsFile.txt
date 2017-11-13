@@ -8,7 +8,6 @@
  
 	stage'Comimit'
 	{
-			step *ensures that the jenkins will pull from the scm 
 			{
 				git credentialsId: '334e2978-6242-484c-9fc9-d1d797818345', url: 'https://github.com/teamoctober/dinersclub.git'
 
