@@ -8,11 +8,11 @@
  
 	stage'Comimit'
 	{
-		step *ensures that the jenkins will pull from the scm 
-		{
+			step *ensures that the jenkins will pull from the scm 
+			{
 				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '334e2978-6242-484c-9fc9-d1d797818345', url: 'https://github.com/teamoctober/dinersclub.git']]])
 				
-				sh 'mvn clean install' **maven build***
+				bat 'call mvn clean package'
 				
 				withSonarQubeEnv
 				{
@@ -24,7 +24,9 @@
 					sonar.sources=Transport Company
 					sonar.jacoco.reportPath=target\\coverage-reports\\jacoco-unit.exec
 				}
+				
 			}
 	}
+ 
  }
  }
